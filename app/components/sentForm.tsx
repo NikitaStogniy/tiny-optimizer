@@ -14,7 +14,7 @@ const SentForm = ({ onSubmit }: SentFormProps) => {
       className="flex flex-row items-center justify-center gap-2"
       onSubmit={async (event) => {
         setIsLoading(true);
-        await onSubmit(event);
+        onSubmit(event);
         setIsLoading(false);
         setIsOptimized(true);
       }}

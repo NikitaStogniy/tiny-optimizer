@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
+import { unstable_noStore as noStore } from "next/cache";
+
 import sharp from "sharp";
 
 export async function POST(request: Request) {
+  noStore();
   const formData = await request.formData();
   const file = formData.get("file") as File;
 
