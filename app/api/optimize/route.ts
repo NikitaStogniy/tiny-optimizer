@@ -15,7 +15,6 @@ export async function POST(request: Request) {
     const optimizedBuffer = await sharp(buffer)
       .png({ quality: 95, compressionLevel: 9 })
       .toBuffer();
-    console.log("optimizedBuffer", optimizedBuffer);
     return new NextResponse(optimizedBuffer, {
       status: 200,
       headers: {
