@@ -2,7 +2,7 @@
 
 export const optimizeImage = async (formData: FormData) => {
   const response = await fetch(
-    "https://tiny-optimizer.vercel.app/api/optimize",
+    `${process.env.NEXT_PUBLIC_API_URL}/api/optimize`,
     {
       method: "POST",
       body: formData,
