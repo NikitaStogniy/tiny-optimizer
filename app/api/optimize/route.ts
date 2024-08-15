@@ -1,20 +1,11 @@
 import { NextResponse } from "next/server";
 import { Compressor } from "@/app/utils/compressor";
-import formidable, { Files } from "formidable";
 
 export async function POST(request: Request) {
   try {
-    const form = formidable({ multiples: true });
-    const [fields, files]: [formidable.Fields, Files] = await new Promise(
-      (resolve, reject) => {
-        form.parse(request.body as any, (err, fields, files) => {
-          if (err) reject(err);
-          else resolve([fields, files]);
-        });
-      }
-    );
+    const formData = await request.formData();
+    const file = formData.get("file");
 
-    const file = files.file?.[0];
     if (!file || !(file instanceof File)) {
       return NextResponse.json(
         { error: "No file uploaded or invalid file" },
