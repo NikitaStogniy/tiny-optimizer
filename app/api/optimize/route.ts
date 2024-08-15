@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
-import { unstable_noStore as noStore } from "next/cache";
-
-import sharp from "sharp";
+import { Compressor } from "@/app/utils/compressor";
 
 export async function POST(request: Request) {
-  noStore();
   const formData = await request.formData();
   const file = formData.get("file") as File;
 
@@ -12,24 +9,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
   }
 
-  const buffer = Buffer.from(await file.arrayBuffer());
+  const optimizedBuffer = await Compressor(file);
 
-  try {
-    const optimizedBuffer = await sharp(buffer)
-      .png({ quality: 95, compressionLevel: 9 })
-      .toBuffer();
-    return new NextResponse(optimizedBuffer, {
-      status: 200,
-      headers: {
-        "Content-Type": "image/png",
-        "Content-Disposition": 'attachment; filename="optimized.png"',
-      },
-    });
-  } catch (error) {
-    console.error("Error optimizing image:", error);
+  if (!optimizedBuffer) {
     return NextResponse.json(
       { error: "Failed to optimize image" },
       { status: 500 }
     );
   }
+
+  return new NextResponse(optimizedBuffer, {
+    status: 200,
+    headers: {
+      "Content-Type": "image/png",
+      "Content-Disposition": `attachment; filename="${file.name}"`,
+    },
+  });
 }
