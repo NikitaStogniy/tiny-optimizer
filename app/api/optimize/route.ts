@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
 import { Compressor } from "@/app/utils/compressor";
+import { imageType } from "@/app/utils/types";
 
 export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const file = formData.get("file");
-
+    const type = formData.get("type");
+    console.log("Request received", type);
     if (!file || !(file instanceof File)) {
       return NextResponse.json(
         { error: "No file uploaded or invalid file" },
@@ -13,7 +15,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const optimizedBuffer = await Compressor(file);
+    const optimizedBuffer = await Compressor(file, type as imageType);
 
     if (!optimizedBuffer) {
       return NextResponse.json(
@@ -25,7 +27,7 @@ export async function POST(request: Request) {
     return new NextResponse(optimizedBuffer, {
       status: 200,
       headers: {
-        "Content-Type": "image/png",
+        "Content-Type": `image/${type}`,
         "Content-Disposition": `attachment; filename="${file.name}"`,
       },
     });

@@ -1,6 +1,8 @@
 "use client";
 
 import { memo, useState } from "react";
+import { imageType } from "@utils/types";
+import SelectType from "./SelectType";
 interface SentFormProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
@@ -9,9 +11,10 @@ const SentForm = ({ onSubmit }: SentFormProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [images, setImages] = useState<File[]>([]);
   const [isOptimized, setIsOptimized] = useState(false);
+  const [type, setType] = useState<imageType | null>(null);
   return (
     <form
-      className="flex flex-row items-center justify-center gap-2"
+      className="flex flex-row items-center justify-center gap-2 bg-fuchsia-900/50 p-[2px] rounded-full"
       onSubmit={(event) => {
         setIsLoading(true);
         onSubmit(event);
@@ -21,12 +24,12 @@ const SentForm = ({ onSubmit }: SentFormProps) => {
     >
       <input
         disabled={isLoading}
-        className="block w-full text-sm text-slate-500
+        className="block w-full text-sm text-fuchsia-500
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
       file:text-sm file:font-semibold
-      file:bg-violet-50 file:text-violet-700
-      hover:file:bg-violet-100 file:h-[48px]"
+      file:bg-fuchsia-900 file:text-fuchsia-500
+      hover:file:bg-fuchsia-700 file:h-[48px] file:ease-in-out file:duration-300 file:cursor-pointer"
         aria-describedby="file_input_help"
         id="file_input"
         type="file"
@@ -36,13 +39,21 @@ const SentForm = ({ onSubmit }: SentFormProps) => {
           const files = event.target.files;
           if (files) {
             setImages(Array.from(files));
+            setType(files[0].type.split("/")[1] as imageType);
           }
         }}
       />
-
+      <input
+        className="hidden"
+        type="text"
+        id="type"
+        name="type"
+        value={type ? type : ""}
+      />
+      <SelectType type={type} setType={setType} />
       <button
-        disabled={isLoading || images.length === 0 || isOptimized}
-        className="rounded-xl bg-violet-500 px-4 py-2 text-white  h-[48px] disabled:opacity-50"
+        disabled={isLoading || images.length === 0 || type === null}
+        className="rounded-full bg-fuchsia-900 text-fuchsia-500 px-4 py-2 border border-fuchsia-900 h-[48px] disabled:opacity-50"
         type="submit"
       >
         Optimize
