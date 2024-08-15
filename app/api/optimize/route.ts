@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   try {
     const optimizedBuffer = await sharp(buffer)
-      .png({ quality: 95, compressionLevel: 9 })
+      .webp({ quality: 95, compressionLevel: 9 })
       .toBuffer();
     return new NextResponse(optimizedBuffer, {
       status: 200,
