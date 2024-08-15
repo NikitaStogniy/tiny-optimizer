@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
   try {
     const optimizedBuffer = await sharp(buffer)
-      .webp({ quality: 95, compressionLevel: 9 })
+      .webp({ quality: 95, effort: 6 })
       .toBuffer();
     return new NextResponse(optimizedBuffer, {
       status: 200,
