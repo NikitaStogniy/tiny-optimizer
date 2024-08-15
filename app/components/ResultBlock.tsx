@@ -1,8 +1,13 @@
 import { memo } from "react";
 import ImageComp from "./ImageComp";
 
+export interface optimizedImage {
+  url: string;
+  type: string;
+}
+
 interface ResultBlockProps {
-  optimizedImages: string[];
+  optimizedImages: optimizedImage[];
   handleDownload: () => void;
 }
 
@@ -18,12 +23,12 @@ const ResultBlock = ({ optimizedImages, handleDownload }: ResultBlockProps) => (
       </button>
     </div>
     <div className="grid grid-cols-4 gap-2">
-      {optimizedImages.map((url, index) => (
+      {optimizedImages.map((image, index) => (
         <div
           key={index}
           className="flex flex-col items-start justify-start gap-2"
         >
-          <ImageComp url={url} index={index} />
+          <ImageComp url={image.url} index={index} type={image.type} />
         </div>
       ))}
     </div>
