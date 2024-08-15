@@ -1,11 +1,6 @@
 import { NextResponse } from "next/server";
 import { Compressor } from "@/app/utils/compressor";
 import formidable, { Files } from "formidable";
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
 
 export async function POST(request: Request) {
   try {
@@ -51,3 +46,9 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
