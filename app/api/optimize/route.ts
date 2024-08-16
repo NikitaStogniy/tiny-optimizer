@@ -7,7 +7,6 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const file = formData.get("file");
     const type = formData.get("type");
-    console.log("Request received", type);
     if (!file || !(file instanceof File)) {
       return NextResponse.json(
         { error: "No file uploaded or invalid file" },
