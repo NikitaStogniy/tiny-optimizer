@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { optimizedImage } from "../components/ResultBlock";
 
-export const downloadOptimizedImages = async (
+export const useDownloadImageZip = async (
   optimizedImages: optimizedImage[]
 ) => {
   const zip = new JSZip();
@@ -20,4 +20,13 @@ export const downloadOptimizedImages = async (
   a.download = "optimized_images.zip";
   a.click();
   URL.revokeObjectURL(url);
+};
+
+export const useDownloadImage = (url: string, type: string, index: number) => {
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `optimized-${index + 1}.${type}`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
