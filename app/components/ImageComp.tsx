@@ -11,6 +11,8 @@ interface ImageCompProps {
 }
 
 const ImageComp = ({ url, index, type, deleteImage }: ImageCompProps) => {
+  const downloadImage = useDownloadImage(url, type, index);
+
   return (
     <div className="flex flex-col items-start justify-start h-full relative">
       <div className="absolute flex flex-row items-center justify-between bottom-2 left-2 p-2 gap-2 w-full">
@@ -20,7 +22,7 @@ const ImageComp = ({ url, index, type, deleteImage }: ImageCompProps) => {
           </div>
           <button
             className="text-sm text-green-500 font-bold hover:bg-green-900/50 bg-green-900/10 hover:text-green-400 ease-in-out duration-300 rounded-md p-3 backdrop-blur-2xl"
-            onClick={() => useDownloadImage(url, type, index)}
+            onClick={() => downloadImage}
           >
             <LuDownload />
           </button>

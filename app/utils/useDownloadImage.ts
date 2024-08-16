@@ -1,9 +1,7 @@
 import JSZip from "jszip";
 import { optimizedImage } from "../components/ResultBlock";
 
-export const useDownloadImageZip = async (
-  optimizedImages: optimizedImage[]
-) => {
+export const downloadImageZip = async (optimizedImages: optimizedImage[]) => {
   const zip = new JSZip();
 
   for (let i = 0; i < optimizedImages.length; i++) {

@@ -2,7 +2,7 @@
 
 import { memo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useDownloadImageZip } from "../utils/useDownloadImage";
+import { downloadImageZip } from "../utils/useDownloadImage";
 import { handleOptimize } from "../utils/optimizeUtils";
 import SentForm from "./sentForm";
 import ResultBlock, { optimizedImage } from "./ResultBlock";
@@ -19,7 +19,7 @@ const OptimisationComp = () => {
   };
 
   const handleDownload = () => {
-    useDownloadImageZip(optimizedImages);
+    downloadImageZip(optimizedImages);
   };
 
   const handleDelete = (url: string) => {
@@ -44,7 +44,7 @@ const OptimisationComp = () => {
             {optimizedImages.length > 0 && (
               <ResultBlock
                 optimizedImages={optimizedImages}
-                handleDownload={handleDownload}
+                handleDownload={() => handleDownload}
                 deleteImage={handleDelete}
               />
             )}
