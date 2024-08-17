@@ -34,6 +34,7 @@ const SentForm = ({ onSubmit }: SentFormProps) => {
         id="file_input"
         type="file"
         name="file"
+        accept="image/*"
         multiple
         onChange={(event) => {
           const files = event.target.files;
