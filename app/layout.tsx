@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import GoogleAdsense from "./utils/GoogleAdsense";
 
 export const metadata: Metadata = {
   title: "Image Optimizer",
@@ -17,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ""} />
       <SpeedInsights />
       <Analytics />
       <body className={inter.className}>{children}</body>
