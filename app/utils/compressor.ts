@@ -6,7 +6,6 @@ import { imageType } from "./types";
 export const Compressor = async (file: File, type: imageType | null) => {
   const buffer = Buffer.from(await file.arrayBuffer());
   const safeType = type ?? "jpeg";
-  console.log(type);
   if (type === null) {
     return buffer;
   }
