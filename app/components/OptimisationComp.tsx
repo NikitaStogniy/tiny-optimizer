@@ -1,11 +1,11 @@
 "use client";
 
 import { memo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { downloadImageZip } from "../utils/useDownloadImage";
 import { handleOptimize } from "../utils/optimizeUtils";
 import SentForm from "./sentForm";
 import ResultBlock, { optimizedImage } from "./ResultBlock";
+import { useTranslations } from "next-intl";
 
 const OptimisationComp = () => {
   const [optimizedImages, setOptimizedImages] = useState<optimizedImage[]>([]);
@@ -25,32 +25,24 @@ const OptimisationComp = () => {
   const handleDelete = (url: string) => {
     setOptimizedImages(optimizedImages.filter((image) => image.url !== url));
   };
-
+  const t = useTranslations("Common");
   return (
     <>
       <SentForm onSubmit={onSubmit} />
-      <AnimatePresence>
-        {optimizedImages.length > 0 && (
-          <motion.div
-            key="result-block"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-          >
-            {isUploading && optimizedImages.length === 0 && (
-              <div className="text-fuchsia-500">Uploading...</div>
-            )}
-            {optimizedImages.length > 0 && (
-              <ResultBlock
-                optimizedImages={optimizedImages}
-                handleDownload={() => handleDownload}
-                deleteImage={handleDelete}
-              />
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {optimizedImages.length > 0 && (
+        <div key="result-block">
+          {isUploading && optimizedImages.length === 0 && (
+            <div className="text-fuchsia-500">{t("uploading")}</div>
+          )}
+          {optimizedImages.length > 0 && (
+            <ResultBlock
+              optimizedImages={optimizedImages}
+              handleDownload={() => handleDownload}
+              deleteImage={handleDelete}
+            />
+          )}
+        </div>
+      )}
     </>
   );
 };

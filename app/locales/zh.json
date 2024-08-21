@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "轻松压缩您的图片"
+  },
+  "Meta": {
+    "title": "轻松压缩您的图片",
+    "description": "使用我们强大的压缩工具轻松优化您的图片。减小文件大小，提高加载速度，并在不影响质量的情况下提升您网站的性能。非常适合希望简化图片资源的网页开发者、设计师和内容创作者。",
+    "keywords": "图片压缩, 图片优化器, 文件大小缩减, 网页性能, 压缩图片, 压缩png, 压缩jpg, 压缩jpeg, 压缩webp, 压缩gif, 压缩svg, 压缩bmp, 压缩tiff"
+  },
+  "Common": {
+    "upload": "选择文件",
+    "selecttype": "选择类型",
+    "to": "到",
+    "settype": "设置类型为 {type}",
+    "optimize": "优化",
+    "download": "下载",
+    "delete": "删除",
+    "uploading": "上传中...",
+    "optimizedimages": "已优化的图片",
+    "downloadzip": "下载ZIP",
+    "downloadimage": "下载图片 {index}",
+    "deleteimage": "删除图片 {index}",
+    "optimizedimage": "已优化的图片 {index}"
+  }
+}
