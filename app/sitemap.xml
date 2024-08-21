@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://compressimage.net/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://compressimage.net/en</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://compressimage.net/es</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://compressimage.net/fr</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://compressimage.net/zh</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://compressimage.net/de</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+   <url>
+    <loc>https://compressimage.net/fr</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+   <url>
+    <loc>https://compressimage.net/it</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+   <url>
+    <loc>https://compressimage.net/ja</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>   <url>
+    <loc>https://compressimage.net/pt</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+
+  </url>   <url>
+    <loc>https://compressimage.net/ru</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
