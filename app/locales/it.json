@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Comprimi le tue immagini con facilità"
+  },
+  "Meta": {
+    "title": "Comprimi le tue immagini con facilità",
+    "description": "Ottimizza le tue immagini senza sforzo con il nostro potente strumento di compressione. Riduci le dimensioni dei file, migliora i tempi di caricamento e aumenta le prestazioni del tuo sito web senza compromettere la qualità. Perfetto per sviluppatori web, designer e creatori di contenuti che desiderano ottimizzare le loro risorse di immagini.",
+    "keywords": "compressione immagini, ottimizzatore immagini, riduzione dimensioni file, prestazioni web, comprimi immagine, comprimi png, comprimi jpg, comprimi jpeg, comprimi webp, comprimi gif, comprimi svg, comprimi bmp, comprimi tiff"
+  },
+  "Common": {
+    "upload": "Scegli file",
+    "selecttype": "Seleziona tipo",
+    "to": "A",
+    "settype": "Imposta tipo a {type}",
+    "optimize": "Ottimizza",
+    "download": "Scarica",
+    "delete": "Elimina",
+    "uploading": "Caricamento in corso...",
+    "optimizedimages": "Immagini ottimizzate",
+    "downloadzip": "Scarica ZIP",
+    "downloadimage": "Scarica immagine {index}",
+    "deleteimage": "Elimina immagine {index}",
+    "optimizedimage": "Immagine ottimizzata {index}"
+  }
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { imageType } from "@utils/types";
+import { useTranslations } from "next-intl";
 
 interface SelectTypeProps {
   type: imageType | null;
@@ -7,6 +8,7 @@ interface SelectTypeProps {
 }
 
 const SelectType = ({ type, setType }: SelectTypeProps) => {
+  const t = useTranslations("Common");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   useEffect(() => {
     setIsDropdownOpen(false);
@@ -15,21 +17,24 @@ const SelectType = ({ type, setType }: SelectTypeProps) => {
     <div className="relative flex flex-row items-center justify-center gap-2">
       {isDropdownOpen && <SelectTypeSheet type={type} setType={setType} />}
       <button
-        className="whitespace-nowrap inline-flex items-center justify-center rounded-full px-4 py-2 h-[48px] w-[120px] bg-fuchsia-900 text-fuchsia-500"
+        className="whitespace-nowrap inline-flex items-center justify-center rounded-full px-4 py-2 h-[48px] min-w-[120px] bg-fuchsia-900 text-fuchsia-500"
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         type="button"
+        aria-label={t("selecttype")}
       >
-        {type ? `To .${type}` : "Select Type"}
+        {type ? `${t("to")} .${type}` : t("selecttype")}
       </button>
     </div>
   );
 };
 
 const SelectTypeSheet = ({ type, setType }: SelectTypeProps) => {
+  const t = useTranslations("Common");
   return (
-    <div className="absolute bottom-full mb-2 w-48 bg-fuchsia-900/50 backdrop-blur-md text-fuchsia-300  shadow-lg rounded-md overflow-hidden">
+    <div className="absolute bottom-full mb-2  min-w-48 bg-fuchsia-900/50 backdrop-blur-md text-fuchsia-300  shadow-lg rounded-md overflow-hidden">
       {["png", "jpg", "jpeg", "webp", "gif"].map((imageType) => (
         <button
+          aria-label={t("settype", { type: imageType })}
           type="button"
           key={imageType}
           className={`block w-full text-left px-4 py-2 hover:text-fuchsia-900 hover:bg-fuchsia-500 ${

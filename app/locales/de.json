@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Komprimieren Sie Ihre Bilder mit Leichtigkeit"
+  },
+  "Meta": {
+    "title": "Komprimieren Sie Ihre Bilder mit Leichtigkeit",
+    "description": "Optimieren Sie Ihre Bilder mühelos mit unserem leistungsstarken Komprimierungstool. Reduzieren Sie Dateigrößen, verbessern Sie Ladezeiten und steigern Sie die Leistung Ihrer Website, ohne die Qualität zu beeinträchtigen. Perfekt für Webentwickler, Designer und Content-Ersteller, die ihre Bilddateien optimieren möchten.",
+    "keywords": "Bildkomprimierung, Bildoptimierer, Dateigröße reduzieren, Webleistung, Bild komprimieren, PNG komprimieren, JPG komprimieren, JPEG komprimieren, WebP komprimieren, GIF komprimieren, SVG komprimieren, BMP komprimieren, TIFF komprimieren, WebP komprimieren, PNG komprimieren, JPG komprimieren, JPEG komprimieren, GIF komprimieren, SVG komprimieren, BMP komprimieren, TIFF komprimieren"
+  },
+  "Common": {
+    "upload": "Dateien auswählen",
+    "selecttype": "Typ auswählen",
+    "to": "Zu",
+    "settype": "Typ auf {type} setzen",
+    "optimize": "Optimieren",
+    "download": "Herunterladen",
+    "delete": "Löschen",
+    "uploading": "Wird hochgeladen...",
+    "optimizedimages": "Optimierte Bilder",
+    "downloadzip": "ZIP herunterladen",
+    "downloadimage": "Bild {index} herunterladen",
+    "deleteimage": "Bild {index} löschen",
+    "optimizedimage": "Optimiertes Bild {index}"
+  }
+}

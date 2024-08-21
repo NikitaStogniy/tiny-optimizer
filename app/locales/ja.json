@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "簡単に画像を圧縮"
+  },
+  "Meta": {
+    "title": "簡単に画像を圧縮",
+    "description": "強力な圧縮ツールで簡単に画像を最適化。ファイルサイズを縮小し、読み込み時間を改善し、品質を損なうことなくウェブサイトのパフォーマンスを向上させます。画像アセットを効率化したいウェブ開発者、デザイナー、コンテンツクリエイターに最適です。",
+    "keywords": "画像圧縮, 画像最適化, ファイルサイズ縮小, ウェブパフォーマンス, 画像圧縮, PNG圧縮, JPG圧縮, JPEG圧縮, WebP圧縮, GIF圧縮, SVG圧縮, BMP圧縮, TIFF圧縮"
+  },
+  "Common": {
+    "upload": "ファイルを選択",
+    "selecttype": "タイプを選択",
+    "to": "変換先",
+    "settype": "タイプを{type}に設定",
+    "optimize": "最適化",
+    "download": "ダウンロード",
+    "delete": "削除",
+    "uploading": "アップロード中...",
+    "optimizedimages": "最適化された画像",
+    "downloadzip": "ZIPをダウンロード",
+    "downloadimage": "画像{index}をダウンロード",
+    "deleteimage": "画像{index}を削除",
+    "optimizedimage": "最適化された画像{index}"
+  }
+}
