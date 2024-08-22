@@ -1,9 +1,9 @@
 "use client";
 
+import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 import { useEffect } from "react";
 
-// This page only renders when the app is built statically (output: 'export')
 export default function RootPage() {
   useEffect(() => {
     const userLang = navigator.language;
@@ -15,5 +15,9 @@ export default function RootPage() {
     redirect(`/${locale}`);
   }, []);
 
-  return null;
+  return (
+    <div>
+      <h1>Redirecting to your preferred language...</h1>
+    </div>
+  );
 }
