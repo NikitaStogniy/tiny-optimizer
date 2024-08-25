@@ -9,6 +9,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 const img_src = `${process.env.NEXT_PUBLIC_API_URL}/santaLucia.jpg`;
 
 import { getTranslations } from "next-intl/server";
+import ChangeLanguage from "../components/ChangeLanguage";
 
 export async function generateMetadata({
   params: { locale },
@@ -34,6 +35,7 @@ export default function Home({
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <ChangeLanguage />
       <h1 className="text-4xl font-bold">{t("title")}</h1>
       <div className="flex flex-col items-center justify-center max-h-[500px] h-auto w-[300px] rounded-lg bg-clip-border overflow-clip overflow-hidden">
         <ReactCompareSlider

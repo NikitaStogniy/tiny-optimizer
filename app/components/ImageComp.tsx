@@ -12,7 +12,9 @@ interface ImageCompProps {
 }
 
 const ImageComp = ({ url, index, type, deleteImage }: ImageCompProps) => {
-  const downloadImage = useDownloadImage(url, type, index);
+  const downloadImage = () => {
+    useDownloadImage(url, type, index);
+  };
   const t = useTranslations("Common");
   return (
     <div className="flex flex-col items-start justify-start h-full relative">
@@ -24,7 +26,7 @@ const ImageComp = ({ url, index, type, deleteImage }: ImageCompProps) => {
           <button
             aria-label={t("downloadimage", { index: index + 1 })}
             className="text-sm text-green-500 font-bold hover:bg-green-900/50 bg-green-900/10 hover:text-green-400 ease-in-out duration-300 rounded-md p-3 backdrop-blur-2xl"
-            onClick={() => downloadImage}
+            onClick={downloadImage}
           >
             <LuDownload />
           </button>
@@ -46,6 +48,7 @@ const ImageComp = ({ url, index, type, deleteImage }: ImageCompProps) => {
         src={url}
         alt={`optimized-${index + 1}`}
         aria-label={t("optimizedimage", { index: index + 1 })}
+        style={{ objectFit: "cover", aspectRatio: "1/1" }} // Updated to use style prop
       />
     </div>
   );

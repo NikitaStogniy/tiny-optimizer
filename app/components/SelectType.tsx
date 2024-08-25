@@ -18,7 +18,7 @@ const SelectType = ({ type, setType }: SelectTypeProps) => {
       {isDropdownOpen && <SelectTypeSheet type={type} setType={setType} />}
       <button
         className="whitespace-nowrap inline-flex items-center justify-center rounded-full px-4 py-2 h-[48px] min-w-[120px] bg-fuchsia-900 text-fuchsia-500"
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
         type="button"
         aria-label={t("selecttype")}
       >

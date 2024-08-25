@@ -3,9 +3,13 @@
 import { memo, useState } from "react";
 import { downloadImageZip } from "../utils/useDownloadImage";
 import { handleOptimize } from "../utils/optimizeUtils";
-import SentForm from "./sentForm";
+import UploadForm from "./UploadForm";
 import ResultBlock, { optimizedImage } from "./ResultBlock";
 import { useTranslations } from "next-intl";
+import {
+  UploadedProvider,
+  useUploadedContext,
+} from "../context/UploadedContext";
 
 const OptimisationComp = () => {
   const [optimizedImages, setOptimizedImages] = useState<optimizedImage[]>([]);
@@ -22,13 +26,13 @@ const OptimisationComp = () => {
     downloadImageZip(optimizedImages);
   };
 
-  const handleDelete = (url: string) => {
-    setOptimizedImages(optimizedImages.filter((image) => image.url !== url));
+  const handleDelete = (name: string) => {
+    setOptimizedImages(optimizedImages.filter((image) => image.url !== name));
   };
   const t = useTranslations("Common");
   return (
-    <>
-      <SentForm onSubmit={onSubmit} />
+    <UploadedProvider>
+      <UploadForm onSubmit={onSubmit} />
       {optimizedImages.length > 0 && (
         <div key="result-block">
           {isUploading && optimizedImages.length === 0 && (
@@ -37,13 +41,13 @@ const OptimisationComp = () => {
           {optimizedImages.length > 0 && (
             <ResultBlock
               optimizedImages={optimizedImages}
-              handleDownload={() => handleDownload}
+              handleDownload={handleDownload}
               deleteImage={handleDelete}
             />
           )}
         </div>
       )}
-    </>
+    </UploadedProvider>
   );
 };
 
