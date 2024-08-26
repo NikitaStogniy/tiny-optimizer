@@ -8,6 +8,7 @@
     "keywords": "图片压缩, 图片优化器, 文件大小缩减, 网页性能, 压缩图片, 压缩png, 压缩jpg, 压缩jpeg, 压缩webp, 压缩gif, 压缩svg, 压缩bmp, 压缩tiff"
   },
   "Common": {
+    "reset": "重置",
     "upload": "选择文件",
     "selecttype": "选择类型",
     "to": "到",

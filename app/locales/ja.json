@@ -8,6 +8,7 @@
     "keywords": "画像圧縮, 画像最適化, ファイルサイズ縮小, ウェブパフォーマンス, 画像圧縮, PNG圧縮, JPG圧縮, JPEG圧縮, WebP圧縮, GIF圧縮, SVG圧縮, BMP圧縮, TIFF圧縮"
   },
   "Common": {
+    "reset": "リセット",
     "upload": "ファイルを選択",
     "selecttype": "タイプを選択",
     "to": "変換先",

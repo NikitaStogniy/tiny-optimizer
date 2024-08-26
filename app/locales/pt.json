@@ -8,6 +8,7 @@
     "keywords": "compressão de imagem, otimizador de imagem, redução de tamanho de arquivo, desempenho web, comprimir imagem, comprimir png, comprimir jpg, comprimir jpeg, comprimir webp, comprimir gif, comprimir svg, comprimir bmp, comprimir tiff"
   },
   "Common": {
+    "reset": "Resetar",
     "upload": "Escolher arquivos",
     "selecttype": "Selecionar tipo",
     "to": "Para",
