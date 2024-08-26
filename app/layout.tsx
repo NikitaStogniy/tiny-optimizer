@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAdsense from "./utils/GoogleAdsense";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Compress your images with ease",
@@ -21,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""}
+      />
       <GoogleAdsense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID || ""} />
       <SpeedInsights />
       <Analytics />
