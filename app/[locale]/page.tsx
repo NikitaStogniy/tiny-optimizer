@@ -34,9 +34,9 @@ export default function Home({
   const t = useTranslations("HomePage");
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between md:p-24 p-4  gap-8 max-w-[1250px] mx-auto relative">
       <ChangeLanguage />
-      <h1 className="text-4xl font-bold">{t("title")}</h1>
+      <h1 className="text-4xl font-bold md:mt-0 mt-12">{t("title")}</h1>
       <div className="flex flex-col items-center justify-center max-h-[500px] h-auto w-[300px] rounded-lg bg-clip-border overflow-clip overflow-hidden">
         <ReactCompareSlider
           itemOne={

@@ -26,7 +26,7 @@ const ChangeLanguage = () => {
         {currentLocale.toUpperCase()}
       </button>
       {isOpen && (
-        <ul className="absolute mt-2 w-full bg-fuchsia-500/75 border border-fuchsia-900 rounded-md shadow-lg">
+        <ul className="absolute mt-2 w-full bg-fuchsia-500/75 border border-fuchsia-900 rounded-md shadow-lg z-50">
           {locales.map((locale) => (
             <li key={locale}>
               <button

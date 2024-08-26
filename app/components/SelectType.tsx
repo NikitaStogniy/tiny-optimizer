@@ -14,10 +14,10 @@ const SelectType = ({ type, setType }: SelectTypeProps) => {
     setIsDropdownOpen(false);
   }, [type]);
   return (
-    <div className="relative flex flex-row items-center justify-center gap-2">
+    <div className="relative flex flex-row items-center justify-center gap-2 w-full md:w-auto">
       {isDropdownOpen && <SelectTypeSheet type={type} setType={setType} />}
       <button
-        className="whitespace-nowrap inline-flex items-center justify-center rounded-full px-4 py-2 h-[48px] min-w-[120px] bg-fuchsia-900 text-fuchsia-500"
+        className="whitespace-nowrap inline-flex items-center justify-center md:rounded-full rounded-xl px-4 py-2 h-[48px] min-w-[120px] w-full md:w-auto bg-fuchsia-900 text-fuchsia-500"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
         type="button"
         aria-label={t("selecttype")}

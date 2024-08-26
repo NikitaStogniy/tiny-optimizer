@@ -31,7 +31,7 @@ const ResultBlock = ({
           {t("downloadzip")}
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid md:grid-cols-4 grid-cols-2 gap-2">
         {optimizedImages.map((image, index) => (
           <div
             key={index}
