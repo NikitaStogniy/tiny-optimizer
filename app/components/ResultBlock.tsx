@@ -1,10 +1,13 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import ImageComp from "./ImageComp";
 import { useTranslations } from "next-intl";
+import { useUploadedContext } from "../context/UploadedContext";
+import { Spinner } from "./Spinner";
 
 export interface optimizedImage {
   url: string;
   type: string;
+  name: string;
 }
 
 interface ResultBlockProps {
@@ -18,6 +21,14 @@ const ResultBlock = ({
   handleDownload,
   deleteImage,
 }: ResultBlockProps) => {
+  const { setIsLoading, uploadedImages } = useUploadedContext();
+
+  useEffect(() => {
+    if (optimizedImages.length === uploadedImages.length) {
+      setIsLoading(false);
+    }
+  }, [optimizedImages]);
+
   const t = useTranslations("Common");
   return (
     <div className="flex flex-col items-start justify-start gap-2 my-4">
@@ -31,13 +42,40 @@ const ResultBlock = ({
           {t("downloadzip")}
         </button>
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 gap-2">
+      <div className="grid lg:grid-cols-4 grid-cols-1 mx-auto md:grid-cols-2 gap-2">
+        {uploadedImages
+          .filter(
+            (image) =>
+              !optimizedImages.some(
+                (optimizedImage) => optimizedImage.name === image.file.name
+              )
+          )
+          .map((image, index) => (
+            <div
+              data-name={image.file.name}
+              key={index}
+              className="flex flex-col items-start justify-start gap-2 relative"
+            >
+              <div className="absolute top-0 left-0 w-full h-full bg-fuchsia-900/50 z-10 flex justify-center items-center">
+                <Spinner />
+              </div>
+              <ImageComp
+                name={image.file.name}
+                url={URL.createObjectURL(image.file)} // Convert File to URL string
+                index={index}
+                type={image.type}
+                deleteImage={deleteImage}
+              />
+            </div>
+          ))}
         {optimizedImages.map((image, index) => (
           <div
+            data-name={image.name || "test"}
             key={index}
             className="flex flex-col items-start justify-start gap-2"
           >
             <ImageComp
+              name={image.name}
               url={image.url}
               index={index}
               type={image.type}

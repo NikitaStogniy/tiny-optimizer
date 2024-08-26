@@ -20,10 +20,10 @@ export const downloadImageZip = async (optimizedImages: optimizedImage[]) => {
   URL.revokeObjectURL(url);
 };
 
-export const downloadImage = (url: string, type: string, index: number) => {
+export const downloadImage = (url: string, type: string, name: string) => {
   const link = document.createElement("a");
   link.href = url;
-  link.download = `optimized-${index + 1}.${type}`;
+  link.download = `${name}`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

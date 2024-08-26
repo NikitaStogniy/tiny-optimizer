@@ -13,6 +13,7 @@ export const handleOptimize = async (
     const fileFormData = new FormData();
     fileFormData.append("file", file);
     fileFormData.append("type", type);
+    fileFormData.append("name", file.name);
     const result = await optimizeImage(fileFormData);
 
     if (result) {
@@ -20,7 +21,7 @@ export const handleOptimize = async (
         `data:${result.contentType};base64,${result.base64Data}`
       ).then((res) => res.blob());
       const url = URL.createObjectURL(blob);
-      setOptimizedImages((prev) => [...prev, { url, type }]);
+      setOptimizedImages((prev) => [...prev, { url, type, name: file.name }]);
     }
   }
 };

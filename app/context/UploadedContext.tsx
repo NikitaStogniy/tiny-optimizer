@@ -10,6 +10,8 @@ interface UploadedImage {
 
 interface UploadedContextType {
   uploadedImages: UploadedImage[];
+  isLoading: boolean;
+  setIsLoading: (isLoading: boolean) => void;
   addUploadedImage: (image: UploadedImage) => void;
   removeUploadedImage: (index: number) => void;
   clearUploadedImages: () => void;
@@ -38,7 +40,7 @@ export const UploadedProvider: React.FC<UploadedProviderProps> = ({
   children,
 }) => {
   const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const addUploadedImage = (image: UploadedImage) => {
     setUploadedImages((prev) => [...prev, image]);
   };
@@ -54,11 +56,13 @@ export const UploadedProvider: React.FC<UploadedProviderProps> = ({
   return (
     <UploadedContext.Provider
       value={{
+        isLoading,
         uploadedImages,
         addUploadedImage,
         removeUploadedImage,
         clearUploadedImages,
         setUploadedImages,
+        setIsLoading,
       }}
     >
       {children}

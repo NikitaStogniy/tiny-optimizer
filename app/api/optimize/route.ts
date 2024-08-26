@@ -28,6 +28,7 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": `image/${type}`,
         "Content-Disposition": `attachment; filename="${file.name}"`,
+        "File-Name": file.name,
       },
     });
   } catch (error) {

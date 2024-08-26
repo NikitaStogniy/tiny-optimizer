@@ -6,10 +6,7 @@ import { handleOptimize } from "../utils/optimizeUtils";
 import UploadForm from "./UploadForm";
 import ResultBlock, { optimizedImage } from "./ResultBlock";
 import { useTranslations } from "next-intl";
-import {
-  UploadedProvider,
-  useUploadedContext,
-} from "../context/UploadedContext";
+import { UploadedProvider } from "../context/UploadedContext";
 
 const OptimisationComp = () => {
   const [optimizedImages, setOptimizedImages] = useState<optimizedImage[]>([]);
@@ -38,13 +35,12 @@ const OptimisationComp = () => {
           {isUploading && optimizedImages.length === 0 && (
             <div className="text-fuchsia-500">{t("uploading")}</div>
           )}
-          {optimizedImages.length > 0 && (
-            <ResultBlock
-              optimizedImages={optimizedImages}
-              handleDownload={handleDownload}
-              deleteImage={handleDelete}
-            />
-          )}
+
+          <ResultBlock
+            optimizedImages={optimizedImages}
+            handleDownload={handleDownload}
+            deleteImage={handleDelete}
+          />
         </div>
       )}
     </UploadedProvider>

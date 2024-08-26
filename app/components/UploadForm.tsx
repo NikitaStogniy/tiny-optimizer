@@ -6,13 +6,14 @@ import SelectType from "./SelectType";
 import { useTranslations } from "next-intl";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useUploadedContext } from "../context/UploadedContext";
+import { Spinner } from "./Spinner";
 
 interface UploadFormProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const UploadForm = ({ onSubmit }: UploadFormProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, setIsLoading } = useUploadedContext();
   const [images, setImages] = useState<File[]>([]);
   const [isOptimized, setIsOptimized] = useState(false);
   const [type, setType] = useState<imageType | null>(null);
@@ -32,7 +33,6 @@ const UploadForm = ({ onSubmit }: UploadFormProps) => {
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsLoading(true);
     const files = event.target.files;
     if (files && files.length > 0) {
       const newImages = Array.from(files);
@@ -41,10 +41,10 @@ const UploadForm = ({ onSubmit }: UploadFormProps) => {
       const newUploadedImages = newImages.map((file, index) => ({
         file,
         type: newImages[index].type.split("/")[1] as imageType,
+        name: file.name,
       }));
       setUploadedImages([...uploadedImages, ...newUploadedImages]);
     }
-    setIsLoading(false);
   };
   return (
     <form
@@ -52,7 +52,6 @@ const UploadForm = ({ onSubmit }: UploadFormProps) => {
       onSubmit={(event) => {
         setIsLoading(true);
         onSubmit(event);
-        setIsLoading(false);
         setIsOptimized(true);
       }}
     >
@@ -113,7 +112,7 @@ const UploadForm = ({ onSubmit }: UploadFormProps) => {
         className="md:rounded-full w-full md:w-auto rounded-xl bg-fuchsia-900 text-fuchsia-500 px-4 py-2 border border-fuchsia-900 h-[48px] disabled:opacity-50 hover:bg-fuchsia-700 hover:text-fuchsia-400 ease-in-out duration-300 cursor-pointer"
         type="submit"
       >
-        {t("optimize")}
+        {isLoading ? <Spinner /> : t("optimize")}
       </button>
     </form>
   );

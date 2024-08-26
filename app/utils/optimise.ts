@@ -14,6 +14,7 @@ export const optimizeImage = async (formData: FormData) => {
   }
 
   const contentType = response.headers.get("content-type");
+  const name = formData.get("name") as string;
   if (contentType && contentType.includes("image")) {
     const blob = await response.blob();
     const arrayBuffer = await blob.arrayBuffer();
@@ -22,6 +23,7 @@ export const optimizeImage = async (formData: FormData) => {
     return {
       contentType,
       base64Data: base64,
+      name: name,
     };
   } else {
     throw new Error("The response is not an image");
